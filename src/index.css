@@ -114,10 +114,13 @@
 
   body {
     @apply bg-background text-foreground;
-    background: var(--gradient-primary);
+    background-image: url('/src/assets/background.png');
+    background-size: cover;
+    background-position: center;
     background-attachment: fixed;
     min-height: 100vh;
     overflow: hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Helvetica Neue', sans-serif;
   }
 }
 
@@ -131,10 +134,10 @@
   }
 
   .window-frame {
-    background: hsl(var(--window-bg));
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(20px);
-    border: 1px solid hsl(var(--window-border));
-    box-shadow: 0 20px 40px hsl(var(--window-shadow));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     border-radius: var(--radius);
   }
 

@@ -1,4 +1,4 @@
-import { Github, Code, FileText, FolderOpen, User, Award, GraduationCap, Briefcase } from "lucide-react";
+import { Github, Code, FileText, FolderOpen, User, Award, GraduationCap, Briefcase, Linkedin, ExternalLink } from "lucide-react";
 
 interface TaskbarProps {
   onOpenWindow: (windowType: string) => void;
@@ -15,33 +15,21 @@ const Taskbar = ({ onOpenWindow, activeWindow }: TaskbarProps) => {
     },
     { 
       icon: Code, 
-      label: "LeetCode", 
-      action: () => window.open("https://leetcode.com", "_blank"),
+      label: "Under Armour", 
+      action: () => window.open("https://www.underarmour.com", "_blank"),
       external: true 
     },
     { 
-      icon: User, 
-      label: "About", 
-      action: () => onOpenWindow("about"),
-      windowType: "about"
+      icon: ExternalLink, 
+      label: "OmniGraffle", 
+      action: () => window.open("https://www.omnigroup.com/omnigraffle", "_blank"),
+      external: true 
     },
     { 
-      icon: Award, 
-      label: "Skills", 
-      action: () => onOpenWindow("skills"),
-      windowType: "skills"
-    },
-    { 
-      icon: GraduationCap, 
-      label: "Education", 
-      action: () => onOpenWindow("education"),
-      windowType: "education"
-    },
-    { 
-      icon: Briefcase, 
-      label: "Experience", 
-      action: () => onOpenWindow("experience"),
-      windowType: "experience"
+      icon: Linkedin, 
+      label: "LinkedIn", 
+      action: () => window.open("https://linkedin.com", "_blank"),
+      external: true 
     },
     { 
       icon: FileText, 

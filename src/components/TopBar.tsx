@@ -6,10 +6,12 @@ interface TopBarProps {
 
 const TopBar = ({ onOpenWindow }: TopBarProps) => {
   const menuItems = [
-    { label: "About Me", action: () => onOpenWindow("about") },
+    { label: "About", action: () => onOpenWindow("about") },
     { label: "Skills", action: () => onOpenWindow("skills") },
     { label: "Education", action: () => onOpenWindow("education") },
     { label: "Experience", action: () => onOpenWindow("experience") },
+    { label: "Resume", action: () => onOpenWindow("resume") },
+    { label: "Projects", action: () => onOpenWindow("projects") },
   ];
 
   return (

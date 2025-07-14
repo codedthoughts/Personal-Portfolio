@@ -1,58 +1,72 @@
 const AboutWindow = () => {
   return (
-    <div className="h-full overflow-y-auto p-8 bg-gradient-to-br from-white/5 to-white/10">
-      <div className="max-w-3xl mx-auto space-y-8">
-        <div className="text-center">
-          <img
-            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face"
-            alt="Profile"
-            className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-white/20 object-cover"
-          />
-          <h1 className="text-4xl font-bold text-white mb-2">John Doe</h1>
-          <p className="text-xl text-white/80">Engineering Student & Aspiring SDE</p>
-        </div>
-
-        <div className="glass-morphism p-6 rounded-lg">
-          <h2 className="text-2xl font-semibold text-white mb-4">About Me</h2>
-          <div className="space-y-4 text-white/80">
-            <p className="leading-relaxed">
-              I'm a passionate engineering student with a strong foundation in computer science 
-              and software development. Currently pursuing my degree while actively building 
-              real-world projects and contributing to open-source communities.
-            </p>
-            <p className="leading-relaxed">
-              My journey in technology started with curiosity about how applications work, 
-              which led me to explore various programming languages and frameworks. I specialize 
-              in full-stack development with a particular interest in backend technologies.
-            </p>
-            <p className="leading-relaxed">
-              I'm actively seeking internship and entry-level opportunities as an SDE or 
-              Backend Developer where I can contribute my skills and continue learning 
-              from experienced professionals in the industry.
-            </p>
+    <div className="h-full overflow-y-auto p-8">
+      {/* Hero Section */}
+      <div className="text-center mb-12">
+        <div className="mb-8">
+          <h1 className="text-5xl font-bold mb-6 text-white">
+            Welcome to My Portfolio
+          </h1>
+          <div className="text-2xl text-white/90 mb-4">
+            <span className="typewriter">
+              I'm a Full Stack Developer
+            </span>
           </div>
+          <div className="text-2xl text-white/90 mb-4">
+            <span className="typewriter" style={{ animationDelay: "4s" }}>
+              Backend Developer
+            </span>
+          </div>
+          <div className="text-2xl text-white/90 mb-8">
+            <span className="typewriter" style={{ animationDelay: "8s" }}>
+              Turning Ideas Into Reality
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* About Content */}
+      <div className="max-w-4xl mx-auto space-y-8">
+        <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10">
+          <h2 className="text-3xl font-semibold mb-6 text-white">
+            About Me
+          </h2>
+          <p className="text-lg text-white/80 leading-relaxed mb-6">
+            Passionate engineering student with expertise in full-stack development, 
+            problem-solving, and creating innovative solutions. I specialize in backend 
+            technologies and love building applications that make a difference.
+          </p>
+          <p className="text-lg text-white/80 leading-relaxed">
+            Currently pursuing my engineering degree while actively seeking opportunities 
+            as an SDE 1 or Backend Developer. I thrive on challenges and enjoy learning 
+            new technologies to solve complex problems.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <div className="glass-morphism p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-white mb-4">Core Values</h3>
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+            <h3 className="text-xl font-semibold mb-4 text-white">
+              What I Do
+            </h3>
             <ul className="space-y-2 text-white/80">
-              <li>• Continuous Learning</li>
-              <li>• Problem Solving</li>
-              <li>• Clean Code Practices</li>
-              <li>• Team Collaboration</li>
-              <li>• Innovation & Creativity</li>
+              <li>• Full Stack Web Development</li>
+              <li>• Backend API Design & Development</li>
+              <li>• Database Architecture & Optimization</li>
+              <li>• Problem Solving on LeetCode</li>
+              <li>• Open Source Contributions</li>
             </ul>
           </div>
 
-          <div className="glass-morphism p-6 rounded-lg">
-            <h3 className="text-xl font-semibold text-white mb-4">Interests</h3>
+          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+            <h3 className="text-xl font-semibold mb-4 text-white">
+              My Goals
+            </h3>
             <ul className="space-y-2 text-white/80">
-              <li>• Backend Development</li>
-              <li>• System Design</li>
-              <li>• Competitive Programming</li>
-              <li>• Open Source Contribution</li>
-              <li>• AI/ML Technologies</li>
+              <li>• Land an SDE 1 position</li>
+              <li>• Contribute to meaningful projects</li>
+              <li>• Continuous learning & growth</li>
+              <li>• Build scalable applications</li>
+              <li>• Make an impact through code</li>
             </ul>
           </div>
         </div>
