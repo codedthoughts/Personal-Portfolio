@@ -2,41 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Portfolio Design System - macOS inspired theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* macOS-inspired background gradients */
+    --background: 210 100% 6%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Glass morphism effects */
+    --glass-bg: 0 0% 100% / 0.1;
+    --glass-border: 0 0% 100% / 0.2;
+    --glass-shadow: 0 0% 0% / 0.3;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Vibrant gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(330 85% 60%), hsl(250 85% 65%), hsl(200 85% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(15 85% 60%), hsl(45 85% 55%), hsl(200 85% 55%));
+    --gradient-accent: linear-gradient(45deg, hsl(280 85% 60%), hsl(320 85% 60%));
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Window system colors */
+    --window-bg: 0 0% 100% / 0.95;
+    --window-border: 0 0% 100% / 0.3;
+    --window-header: 0 0% 100% / 0.1;
+    --window-shadow: 0 0% 0% / 0.4;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Taskbar colors */
+    --taskbar-bg: 0 0% 0% / 0.8;
+    --taskbar-item: 0 0% 100% / 0.7;
+    --taskbar-hover: 0 0% 100% / 0.9;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Interactive states */
+    --primary: 280 85% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 100% / 0.1;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 320 85% 60%;
+    --accent-foreground: 0 0% 100%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Semantic colors */
+    --success: 150 85% 50%;
+    --warning: 45 85% 55%;
+    --error: 0 85% 60%;
+    --info: 200 85% 55%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --border: 0 0% 100% / 0.2;
+    --input: 0 0% 100% / 0.1;
+    --ring: 280 85% 60%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +114,125 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background: var(--gradient-primary);
+    background-attachment: fixed;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+}
+
+/* Custom animations and utilities */
+@layer components {
+  .glass-morphism {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: 0 8px 32px hsl(var(--glass-shadow));
+  }
+
+  .window-frame {
+    background: hsl(var(--window-bg));
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--window-border));
+    box-shadow: 0 20px 40px hsl(var(--window-shadow));
+    border-radius: var(--radius);
+  }
+
+  .taskbar-item {
+    background: hsl(var(--taskbar-item));
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .taskbar-item:hover {
+    background: hsl(var(--taskbar-hover));
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 8px 20px hsl(var(--glass-shadow));
+  }
+
+  .window-controls {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .window-control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .window-control.close {
+    background: hsl(0 85% 65%);
+  }
+
+  .window-control.minimize {
+    background: hsl(45 85% 65%);
+  }
+
+  .window-control.maximize {
+    background: hsl(150 85% 65%);
+  }
+
+  .window-control:hover {
+    transform: scale(1.2);
+    box-shadow: 0 2px 8px hsl(var(--glass-shadow));
+  }
+
+  .typewriter {
+    overflow: hidden;
+    border-right: 0.15em solid hsl(var(--primary));
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: hsl(var(--primary)); }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .slide-up {
+    animation: slideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .scale-in {
+    animation: scaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes scaleIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .dock-bounce {
+    animation: dockBounce 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  @keyframes dockBounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+    60% { transform: translateY(-4px); }
   }
 }
