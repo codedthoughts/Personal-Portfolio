@@ -1,14 +1,15 @@
-import { User, Mail, Instagram } from "lucide-react";
+import { User, Mail, Instagram, Phone } from "lucide-react";
 import { useState } from "react";
 
 const UserProfile = () => {
   const [showProfile, setShowProfile] = useState(false);
 
   const userInfo = {
-    name: "John Doe",
-    email: "john.doe@example.com",
-    instagram: "@johndoe_dev",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
+    name: "Sarthak Jejurkar",
+    email: "jejurkarsarthak17@gmail.com",
+    instagram: "@coded_thoughts",
+    phone: "+91 7020291006",
+    avatar: "src/assets/Resume Passport Size Photo.png"
   };
 
   return (
@@ -22,28 +23,32 @@ const UserProfile = () => {
       
       {/* Profile Dropdown */}
       {showProfile && (
-        <div className="absolute top-full right-0 mt-2 w-64 glass-morphism rounded-lg p-4 animate-fade-in">
+        <div className="absolute top-full right-0 mt-2 w-80 glass-morphism rounded-xl p-6 animate-fade-in shadow-lg border border-white/10 hover:border-white/20 transition-all duration-200">
           <div className="flex items-center gap-3 mb-4">
             <img
               src={userInfo.avatar}
               alt="Profile"
-              className="w-12 h-12 rounded-full object-cover border-2 border-white/20"
+              className="w-16 h-16 rounded-full object-cover border-2 border-white/20"
             />
             <div>
-              <h3 className="text-white font-semibold">{userInfo.name}</h3>
-              <p className="text-white/70 text-sm">Full Stack Developer</p>
+              <h3 className="text-black font-semibold text-2xl">{userInfo.name}</h3>
+              <p className="text-black/90 text-lg">Full Stack Developer</p>
             </div>
           </div>
           
-          <div className="space-y-2">
-            <div className="flex items-center gap-2 text-white/80 text-sm">
+          <div className="space-y-3">
+            <div className="flex items-center gap-3 text-black text-lg">
               <Mail className="w-4 h-4" />
               <span>{userInfo.email}</span>
             </div>
-            
+            <div className="flex items-center gap-3 text-black text-lg">
+              <Phone className="w-4 h-4" />
+              <span>{userInfo.phone}</span>
+            </div>
+
             <button
               onClick={() => window.open(`https://instagram.com/${userInfo.instagram.slice(1)}`, "_blank")}
-              className="flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm w-full"
+              className="flex items-center gap-3 text-black transition-colors text-lg w-full hover:bg-white/10 rounded-md p-2"
             >
               <Instagram className="w-4 h-4" />
               <span>{userInfo.instagram}</span>

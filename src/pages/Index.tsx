@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TopBar from "@/components/TopBar";
 import WindowManager from "@/components/WindowManager";
 import Taskbar from "@/components/Taskbar";
@@ -7,7 +7,20 @@ import UserProfile from "@/components/UserProfile";
 
 const Index = () => {
   const [activeWindow, setActiveWindow] = useState<string | null>(null);
-  const [visitorCount] = useState(Math.floor(Math.random() * 1000) + 500);
+  const [visitorCount, setVisitorCount] = useState<number>(0);
+
+  useEffect(() => {
+    // Get current visitor count from localStorage
+    const storedCount = localStorage.getItem('visitorCount');
+    if (storedCount) {
+      setVisitorCount(parseInt(storedCount));
+    }
+
+    // Register this visit
+    const newCount = (storedCount ? parseInt(storedCount) : 0) + 1;
+    localStorage.setItem('visitorCount', newCount.toString());
+    setVisitorCount(newCount);
+  }, []);
 
   const openWindow = (windowType: string) => {
     setActiveWindow(windowType);

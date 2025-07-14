@@ -114,7 +114,7 @@
 
   body {
     @apply bg-background text-foreground;
-    background-image: url('/src/assets/background.png');
+    background-image: url('/src/assets/peakpx.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

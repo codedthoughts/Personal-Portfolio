@@ -6,6 +6,7 @@ import EducationWindow from "./windows/EducationWindow";
 import ExperienceWindow from "./windows/ExperienceWindow";
 import ResumeWindow from "./windows/ResumeWindow";
 import ProjectsWindow from "./windows/ProjectsWindow";
+import GitHubStats from "./windows/GitHubStats";
 
 interface WindowManagerProps {
   activeWindow: string | null;
@@ -44,6 +45,8 @@ const WindowManager = ({ activeWindow, onClose }: WindowManagerProps) => {
         return <ExperienceWindow />;
       case "resume":
         return <ResumeWindow />;
+      case "github":
+        return <GitHubStats />;
       case "projects":
         return <ProjectsWindow />;
       default:
@@ -76,17 +79,10 @@ const WindowManager = ({ activeWindow, onClose }: WindowManagerProps) => {
           <div className="text-white/90 font-medium text-sm capitalize">
             {activeWindow?.replace(/([A-Z])/g, ' $1').trim()}
           </div>
-          
-          <button
-            onClick={handleClose}
-            className="text-white/60 hover:text-white transition-colors p-1"
-          >
-            <X className="w-4 h-4" />
-          </button>
         </div>
 
         {/* Window Content */}
-        <div className="flex-1 overflow-hidden">
+        <div className="flex-1 overflow-y-auto p-4">
           {renderWindowContent()}
         </div>
       </div>
