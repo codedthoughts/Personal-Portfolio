@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 
 const ResumeWindow = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const pdfUrl = '/src/assets/Sarthak\'s Resume.pdf';
+  // Import the PDF file using Vite's import.meta.glob
+  const pdfUrl = new URL('@/assets/Sarthak\'s Resume.pdf', import.meta.url).href;
 
   useEffect(() => {
     setTimeout(() => setIsLoading(false), 500);

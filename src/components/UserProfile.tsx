@@ -4,12 +4,15 @@ import { useState } from "react";
 const UserProfile = () => {
   const [showProfile, setShowProfile] = useState(false);
 
+  // Import the avatar image
+  const avatar = new URL('@/assets/Resume Passport Size Photo.png', import.meta.url).href;
+
   const userInfo = {
     name: "Sarthak Jejurkar",
     email: "jejurkarsarthak17@gmail.com",
     instagram: "@coded_thoughts",
     phone: "+91 7020291006",
-    avatar: "src/assets/Resume Passport Size Photo.png"
+    avatar: avatar
   };
 
   return (
