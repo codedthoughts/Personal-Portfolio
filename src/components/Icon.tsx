@@ -23,14 +23,27 @@ const Icon = ({ name, className = '', size = 24 }: IconProps) => {
 
   return (
     <div 
-      className={`inline-flex items-center justify-center ${className}`}
-      style={{ width: `${size}px`, height: `${size}px` }}
+      className={`flex items-center justify-center ${className}`}
+      style={{
+        width: `${size}px`,
+        height: `${size}px`,
+        minWidth: `${size}px`,
+        minHeight: `${size}px`
+      }}
     >
       <img 
         src={iconUrl}
         alt={name}
-        className="w-full h-full object-contain"
+        className="max-w-full max-h-full object-contain"
         loading="lazy"
+        style={{
+          display: 'block',
+          margin: 'auto',
+          maxWidth: '100%',
+          maxHeight: '100%',
+          width: 'auto',
+          height: 'auto'
+        }}
       />
     </div>
   );

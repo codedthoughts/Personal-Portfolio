@@ -47,7 +47,7 @@ const Taskbar = ({ onOpenWindow, activeWindow }: TaskbarProps) => {
 
   return (
     <div className="fixed bottom-7 left-0 right-0 h-14 flex items-center justify-center p-2 z-40">
-      <div className="glass-morphism rounded-2xl px-4 py-3 flex items-center gap-6">
+      <div className="glass-morphism rounded-2xl px-4 py-3 flex items-center justify-center gap-6">
         {taskbarItems.map((item, index) => {
           const isActive = activeWindow === item.windowType;
           
@@ -59,9 +59,16 @@ const Taskbar = ({ onOpenWindow, activeWindow }: TaskbarProps) => {
               <button
                 key={item.label}
                 onClick={item.action}
-                className={`taskbar-item w-12 h-12 p-2 relative group ${
+                className={`taskbar-item w-12 h-12 p-2 relative group flex items-center justify-center ${
                   isActive ? 'bg-white/20 scale-110' : ''
                 }`}
+                style={{
+                  minWidth: '3rem',
+                  minHeight: '3rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
                 title={item.label}
               >
               <Icon name={item.icon} size={28} />
